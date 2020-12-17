@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <com.airbnb.lottie.LottieAnimationView
+        android:id="@+id/lottie_christmas_tree"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginBottom="60dp"
+        android:visibility="invisible"
+        app:lottie_rawRes="@raw/christmas_tree"
+        app:lottie_loop="true"
+        app:lottie_autoPlay="true"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"/>
+
+    <Button
+        android:id="@+id/show_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="20dp"
+        android:text="Show"
+        android:textAllCaps="false"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/timer_sync_button"
+        app:layout_constraintBottom_toTopOf="@id/timer_async_button"/>
+
+    <Button
+        android:id="@+id/timer_sync_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Sync - 10 seconds"
+        android:textAllCaps="false"
+        app:layout_constraintTop_toTopOf="@id/show_button"
+        app:layout_constraintStart_toEndOf="@id/show_button"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="@id/show_button"/>
+
+    <Button
+        android:id="@+id/timer_async_button"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="20dp"
+        android:text="Async - 10 seconds"
+        android:textAllCaps="false"
+        app:layout_constraintStart_toStartOf="@id/show_button"
+        app:layout_constraintEnd_toEndOf="@id/timer_sync_button"
+        app:layout_constraintBottom_toTopOf="@id/timer_suspend_button"/>
+
+    <Button
+        android:id="@+id/timer_suspend_button"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="60dp"
+        android:text="Suspend - 10 seconds"
+        android:textAllCaps="false"
+        app:layout_constraintStart_toStartOf="@id/show_button"
+        app:layout_constraintEnd_toEndOf="@id/timer_sync_button"
+        app:layout_constraintBottom_toBottomOf="parent"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
