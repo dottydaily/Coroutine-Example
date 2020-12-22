@@ -1,4 +1,4 @@
-# Coroutine Example
+# Coroutine Workshop
 
 > When countdown is reach to 0, The christmas tree will be invisible.
 
