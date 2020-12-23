@@ -28,6 +28,7 @@
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="16dp"
         android:progress="0"
+        android:progressTint="@android:color/holo_red_dark"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toStartOf="@id/job_1_text_view"
@@ -40,6 +41,7 @@
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="16dp"
         android:progress="0"
+        android:progressTint="@color/colorBlue"
         app:layout_constraintTop_toBottomOf="@id/progress_bar_job_1"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toStartOf="@id/job_2_text_view"
@@ -52,6 +54,7 @@
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="16dp"
         android:progress="0"
+        android:progressTint="@color/colorGreenYellow"
         app:layout_constraintTop_toBottomOf="@id/progress_bar_job_2"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toStartOf="@id/job_3_text_view"
@@ -136,7 +139,7 @@
         app:layout_constraintEnd_toEndOf="parent"/>
 
     <Button
-        android:id="@+id/start_button_job_1_text_view"
+        android:id="@+id/start_button_job_1"
         style="ProgressText"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
@@ -145,10 +148,10 @@
         android:layout_marginHorizontal="16dp"
         app:layout_constraintBaseline_toBaselineOf="@id/job_1_title_text_view"
         app:layout_constraintStart_toEndOf="@id/job_1_title_text_view"
-        app:layout_constraintEnd_toStartOf="@id/cancel_button_job_1_text_view"/>
+        app:layout_constraintEnd_toEndOf="parent"/>
 
     <Button
-        android:id="@+id/start_button_job_2_text_view"
+        android:id="@+id/start_button_job_2"
         style="ProgressText"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
@@ -157,10 +160,10 @@
         android:layout_marginHorizontal="16dp"
         app:layout_constraintBaseline_toBaselineOf="@id/job_2_title_text_view"
         app:layout_constraintStart_toEndOf="@id/job_2_title_text_view"
-        app:layout_constraintEnd_toStartOf="@id/cancel_button_job_2_text_view"/>
+        app:layout_constraintEnd_toEndOf="parent"/>
 
     <Button
-        android:id="@+id/start_button_job_3_text_view"
+        android:id="@+id/start_button_job_3"
         style="ProgressText"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
@@ -169,42 +172,6 @@
         android:layout_marginHorizontal="16dp"
         app:layout_constraintBaseline_toBaselineOf="@id/job_3_title_text_view"
         app:layout_constraintStart_toEndOf="@id/job_3_title_text_view"
-        app:layout_constraintEnd_toStartOf="@id/cancel_button_job_3_text_view"/>
-
-    <Button
-        android:id="@+id/cancel_button_job_1_text_view"
-        style="ProgressText"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:text="Cancel 1"
-        android:backgroundTint="@android:color/darker_gray"
-        android:layout_marginEnd="16dp"
-        app:layout_constraintBaseline_toBaselineOf="@id/job_1_title_text_view"
-        app:layout_constraintStart_toEndOf="@id/start_button_job_1_text_view"
-        app:layout_constraintEnd_toEndOf="parent"/>
-
-    <Button
-        android:id="@+id/cancel_button_job_2_text_view"
-        style="ProgressText"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:text="Cancel 2"
-        android:backgroundTint="@android:color/darker_gray"
-        android:layout_marginEnd="16dp"
-        app:layout_constraintBaseline_toBaselineOf="@id/job_2_title_text_view"
-        app:layout_constraintStart_toEndOf="@id/start_button_job_2_text_view"
-        app:layout_constraintEnd_toEndOf="parent"/>
-
-    <Button
-        android:id="@+id/cancel_button_job_3_text_view"
-        style="ProgressText"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:text="Cancel 3"
-        android:backgroundTint="@android:color/darker_gray"
-        android:layout_marginEnd="16dp"
-        app:layout_constraintBaseline_toBaselineOf="@id/job_3_title_text_view"
-        app:layout_constraintStart_toEndOf="@id/start_button_job_3_text_view"
         app:layout_constraintEnd_toEndOf="parent"/>
 
     <Button
