@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.example.coroutinepractice.databinding.ActivityMainBinding
 import com.example.coroutinepractice.handle_job.ProgressActivity
+import com.example.coroutinepractice.timeout.RacingProgressActivity
 import com.example.coroutineworkshop.ChristmasActivity
 
 class MainActivity : AppCompatActivity() {
@@ -20,6 +21,7 @@ class MainActivity : AppCompatActivity() {
         binding.run {
             coroutineScopeButton.setOnClickListener { launchActivity(ChristmasActivity::class.java) }
             handleJobButton.setOnClickListener { launchActivity(ProgressActivity::class.java) }
+            racingProgressButton.setOnClickListener { launchActivity(RacingProgressActivity::class.java) }
         }
     }
 

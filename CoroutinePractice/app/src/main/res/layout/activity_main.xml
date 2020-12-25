@@ -26,8 +26,21 @@
         android:text="@string/practice_handle_job"
         android:textAllCaps="false"
         android:layout_marginTop="16dp"
-        android:backgroundTint="@color/red_700"
+        android:backgroundTint="@android:color/holo_green_dark"
         app:layout_constraintTop_toBottomOf="@id/coroutine_scope_button"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/racing_progress_button"/>
+
+    <Button
+        android:id="@+id/racing_progress_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/practice_racing_progress"
+        android:textAllCaps="false"
+        android:layout_marginTop="16dp"
+        android:backgroundTint="@color/red_700"
+        app:layout_constraintTop_toBottomOf="@id/handle_job_button"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"/>
