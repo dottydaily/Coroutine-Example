@@ -31,18 +31,24 @@ class RacingProgressViewModel: ViewModel() {
             progress1LiveData.postValue(0)
             progress2LiveData.postValue(0)
 
-            //TODO: withTimeout is not working
             try {
-                withTimeout(500) {
+                withTimeout(4000) {
                     startProgress1Job(target)
                     startProgress2Job(target)
+
+                    val allJobs = listOfNotNull(job1, job2)
+                    allJobs.joinAll()
                 }
-            } catch (e: Exception) {
+            } catch (e: TimeoutCancellationException) {
                 Log.e("COROUTINE-PRACTICES", e.localizedMessage)
+                job1?.cancelAndJoin()
+                job2?.cancelAndJoin()
                 setStatusLiveDataIfNeeded(RacingJobStatus.TIMEOUT)
             } finally {
-                println("Ready")
-                setStatusLiveDataIfNeeded(RacingJobStatus.READY)
+                if (job1?.isCancelled != true && job2?.isCancelled != true) {
+                    println("Ready")
+                    setStatusLiveDataIfNeeded(RacingJobStatus.READY)
+                }
             }
         }
     }
