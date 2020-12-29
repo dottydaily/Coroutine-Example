@@ -43,6 +43,19 @@
         app:layout_constraintTop_toBottomOf="@id/handle_job_button"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/current_location_button"/>
+
+    <Button
+        android:id="@+id/current_location_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/practice_current_location"
+        android:textAllCaps="false"
+        android:layout_marginTop="16dp"
+        android:backgroundTint="@android:color/holo_orange_dark"
+        app:layout_constraintTop_toBottomOf="@id/racing_progress_button"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

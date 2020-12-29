@@ -3,6 +3,7 @@ package com.example.coroutinepractice
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import com.example.coroutinepractice.current_location.CurrentLocationActivity
 import com.example.coroutinepractice.databinding.ActivityMainBinding
 import com.example.coroutinepractice.handle_job.ProgressActivity
 import com.example.coroutinepractice.timeout.RacingProgressActivity
@@ -22,6 +23,7 @@ class MainActivity : AppCompatActivity() {
             coroutineScopeButton.setOnClickListener { launchActivity(ChristmasActivity::class.java) }
             handleJobButton.setOnClickListener { launchActivity(ProgressActivity::class.java) }
             racingProgressButton.setOnClickListener { launchActivity(RacingProgressActivity::class.java) }
+            currentLocationButton.setOnClickListener { launchActivity(CurrentLocationActivity::class.java) }
         }
     }
 
