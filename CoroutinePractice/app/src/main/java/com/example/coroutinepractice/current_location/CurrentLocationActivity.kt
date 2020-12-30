@@ -1,6 +1,8 @@
 package com.example.coroutinepractice.current_location
 
+import android.Manifest
 import android.app.Activity
+import android.app.AlertDialog
 import android.content.Intent
 import android.content.pm.PackageManager
 import androidx.appcompat.app.AppCompatActivity
@@ -11,8 +13,10 @@ import androidx.activity.viewModels
 import androidx.core.app.ActivityCompat
 import androidx.lifecycle.lifecycleScope
 import com.example.coroutinepractice.databinding.ActivityCurrentLocationBinding
+import com.example.coroutinepractice.utils.AlertDialogUtils
 import com.example.coroutinepractice.utils.LocationUtils
 import com.example.coroutinepractice.utils.LocationPermissionDeniedException
+import com.example.coroutinepractice.utils.LocationSettingDisabledException
 import com.google.android.gms.common.api.ResolvableApiException
 import com.google.android.gms.location.LocationRequest
 import com.google.android.gms.location.LocationServices
@@ -69,10 +73,18 @@ class CurrentLocationActivity : AppCompatActivity() {
                     )
                     Log.e("COROUTINE-PRACTICES", e.localizedMessage)
                     setShowing(false)
-                } catch (e: ResolvableApiException) {
-                    e.startResolutionForResult(
-                        this@CurrentLocationActivity, LOCATION_SETTING_REQUEST_CODE)
-                    setShowing(false)
+                } catch (e: LocationSettingDisabledException) {
+                    LocationUtils.checkLocationSetting(
+                        this@CurrentLocationActivity, locationRequest,
+                        onFailedListener = {
+                            if (it is ResolvableApiException) {
+                                it.startResolutionForResult(
+                                        this@CurrentLocationActivity, LOCATION_SETTING_REQUEST_CODE)
+                            } else {
+                                setShowing(false)
+                            }
+                        }
+                    )
                 }
             }
         }
@@ -89,18 +101,23 @@ class CurrentLocationActivity : AppCompatActivity() {
                 grantResults[0] == PackageManager.PERMISSION_GRANTED &&
                 grantResults[1] == PackageManager.PERMISSION_GRANTED) {
                 binding.startButton.performClick()
-            }
-        } else {
-            if (!shouldShowRequestPermissionRationale(android.Manifest.permission.ACCESS_FINE_LOCATION)) {
-                //TODO: Show alert and go to setting to enable location permission.
+            } else {
+                if (!shouldShowRequestPermissionRationale(Manifest.permission.ACCESS_FINE_LOCATION)) {
+                    //TODO: Show alert and go to setting to enable location permission.
+                    AlertDialogUtils.handleNeverAskLocationAgain(this)
+                }
             }
         }
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
-        if (requestCode == LOCATION_SETTING_REQUEST_CODE && resultCode == Activity.RESULT_OK) {
-            binding.startButton.performClick()
+        if (requestCode == LOCATION_SETTING_REQUEST_CODE) {
+            if (resultCode == Activity.RESULT_OK) {
+                binding.startButton.performClick()
+            } else {
+                setShowing(false)
+            }
         }
     }
 
