@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">CoroutinePractice</string>
+    <string name="practice_coroutine_scope">Practice - Coroutine Scope</string>
+    <string name="practice_handle_job">Practice - Handle Job</string>
+    <string name="practice_racing_progress">Practice - Racing Progress</string>
+    <string name="practice_current_location">Practice - Current Location</string>
 </resources>

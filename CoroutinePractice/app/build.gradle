@@ -46,11 +46,23 @@ dependencies {
     // Coroutines
     implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-android:1.3.9'
 
+    // Lottie
+    implementation 'com.airbnb.android:lottie:3.5.0'
+
+    // ViewModelProvider
+    implementation 'androidx.lifecycle:lifecycle-extensions:2.2.0'
+
+    // CoroutineScope - viewModelScope
+    implementation 'androidx.lifecycle:lifecycle-viewmodel-ktx:2.2.0'
+
+    // CoroutineScope - lifecycleScope
+    implementation 'androidx.lifecycle:lifecycle-runtime-ktx:2.2.0'
+
     // For create ViewModel in one line
     implementation "androidx.fragment:fragment-ktx:1.2.5"
 
-    // ViewModel - KTX
-    implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:2.2.0"
+    // Google Location Services
+    implementation "com.google.android.gms:play-services-location:17.1.0"
 
     testImplementation 'junit:junit:'
     androidTestImplementation 'androidx.test.ext:junit:1.1.2'

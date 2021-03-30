@@ -1,65 +1,42 @@
 package com.example.coroutinepractice
 
-import android.graphics.Color
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import androidx.activity.viewModels
+import com.example.coroutinepractice.current_location.CurrentLocationActivity
 import com.example.coroutinepractice.databinding.ActivityMainBinding
+import com.example.coroutinepractice.handle_job.ProgressActivity
+import com.example.coroutinepractice.timeout.RacingProgressActivity
+import com.example.coroutineworkshop.ChristmasActivity
 
 class MainActivity : AppCompatActivity() {
 
-    // ViewBinding
+    // ViewBinding's object.
     private lateinit var binding: ActivityMainBinding
-
-    // ViewModel
-    private val viewModel by viewModels<MainViewModel>()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        binding.button.setOnClickListener {
-            viewModel.runAllProcess()
+        binding.run {
+            coroutineScopeButton.setOnClickListener { launchActivity(ChristmasActivity::class.java) }
+            handleJobButton.setOnClickListener { launchActivity(ProgressActivity::class.java) }
+            racingProgressButton.setOnClickListener { launchActivity(RacingProgressActivity::class.java) }
+            currentLocationButton.setOnClickListener { launchActivity(CurrentLocationActivity::class.java) }
         }
+    }
 
-        // Observe
-        viewModel.run {
-            job1LiveData.observe(this@MainActivity) {
-                binding.job1TextView.run {
-                    text = "$it %"
+    ///////////////////
+    // Helper method //
+    ///////////////////
 
-                    if (it == 100) {
-                        this.setTextColor(Color.GREEN)
-                    }
-                }
-            }
-
-            job2LiveData.observe(this@MainActivity) {
-                binding.job2TextView.run {
-                    text = "$it %"
-
-                    if (it == 100) {
-                        this.setTextColor(Color.GREEN)
-                    }
-                }
-            }
-
-            job3LiveData.observe(this@MainActivity) {
-                binding.job3TextView.run {
-                    text = "$it %"
-
-                    if (it == 100) {
-                        this.setTextColor(Color.GREEN)
-                    }
-                }
-            }
-
-            statusLiveData.observe(this@MainActivity) { isDone ->
-                if (isDone) {
-                    binding.root.setBackgroundColor(Color.GREEN)
-                }
-            }
-        }
+    /**
+     * A method to launch the target [Activity].
+     * @param activityClass The target class of [Activity].
+     */
+    private fun launchActivity(activityClass: Class<*>) {
+        val intent = Intent(this@MainActivity, activityClass)
+        startActivity(intent)
     }
 }

@@ -1,7 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-    android:id="@+id/main_layout"
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -9,44 +7,55 @@
     tools:context=".MainActivity">
 
     <Button
-        android:id="@+id/button"
+        android:id="@+id/coroutine_scope_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="START"
+        android:text="@string/practice_coroutine_scope"
+        android:textAllCaps="false"
+        android:backgroundTint="@color/colorBlue"
+        app:layout_constraintVertical_chainStyle="packed"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintBottom_toTopOf="@id/job_2_text_view" />
+        app:layout_constraintBottom_toTopOf="@id/handle_job_button"/>
 
-    <TextView
-        style="ProgressText"
-        android:id="@+id/job_1_text_view"
+    <Button
+        android:id="@+id/handle_job_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="0%"
-        app:layout_constraintBaseline_toBaselineOf="@id/job_2_text_view"
+        android:text="@string/practice_handle_job"
+        android:textAllCaps="false"
+        android:layout_marginTop="16dp"
+        android:backgroundTint="@android:color/holo_green_dark"
+        app:layout_constraintTop_toBottomOf="@id/coroutine_scope_button"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toStartOf="@id/job_2_text_view" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/racing_progress_button"/>
 
-    <TextView
-        style="ProgressText"
-        android:id="@+id/job_2_text_view"
+    <Button
+        android:id="@+id/racing_progress_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="0%"
-        app:layout_constraintTop_toBottomOf="@id/button"
-        app:layout_constraintStart_toEndOf="@id/job_1_text_view"
-        app:layout_constraintEnd_toStartOf="@id/job_3_text_view"
-        app:layout_constraintBottom_toBottomOf="parent" />
+        android:text="@string/practice_racing_progress"
+        android:textAllCaps="false"
+        android:layout_marginTop="16dp"
+        android:backgroundTint="@color/red_700"
+        app:layout_constraintTop_toBottomOf="@id/handle_job_button"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/current_location_button"/>
 
-    <TextView
-        style="ProgressText"
-        android:id="@+id/job_3_text_view"
+    <Button
+        android:id="@+id/current_location_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="0%"
-        app:layout_constraintBaseline_toBaselineOf="@id/job_2_text_view"
-        app:layout_constraintStart_toEndOf="@id/job_2_text_view"
-        app:layout_constraintEnd_toEndOf="parent" />
+        android:text="@string/practice_current_location"
+        android:textAllCaps="false"
+        android:layout_marginTop="16dp"
+        android:backgroundTint="@android:color/holo_orange_dark"
+        app:layout_constraintTop_toBottomOf="@id/racing_progress_button"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
